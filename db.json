@@ -1,0 +1,21 @@
+
+{
+    "recette": [
+      {
+        "id": 1,
+        "nom": "Spaghetti Bolognese",
+        "ingredient": "Pâtes, viande hachée, tomate, oignon, ail",
+        "etapes": "Faire cuire les pâtes, préparer la sauce, mélanger.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRryNuzOaja0QmPPXEiSf8Je_xnrhvL7ChsaS-JQYV_P5fwZpeFVJXB5t2wYwp9oVKt3lc&usqp=CAU",
+        "category": "Plat principal"
+      },
+      {
+        "id": 2,
+        "nom": "Gâteau au chocolat",
+        "ingredient": "Chocolat, farine, sucre, œufs, beurre",
+        "etapes": "Mélanger les ingrédients, cuire au four à 180°C.",
+        "image": "https://via.placeholder.com/300x200",
+        "category": "Dessert"
+      }
+    ]
+  }
