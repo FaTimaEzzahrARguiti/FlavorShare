@@ -10,7 +10,9 @@ import { Recette } from 'src/app/recette.model';
 })
 export class RecetteListComponent implements OnInit {
   recettes: Recette[] = [];
+  filteredRecettes: Recette[] = [];
   recetteForm: FormGroup;
+  selectedCategory: string = 'Toutes';
 
   constructor(private recetteService: RecetteService, private fb: FormBuilder) {
     this.recetteForm = this.fb.group({
@@ -30,11 +32,21 @@ export class RecetteListComponent implements OnInit {
     this.recetteService.getRecettes().subscribe({
       next: (data) => {
         this.recettes = data;
+        this.filterCategory(this.selectedCategory); // Appliquer le filtre initial
       },
       error: (error) => {
         console.error('Erreur lors du chargement des recettes:', error);
       }
     });
+  }
+
+  filterCategory(category: string): void {
+    this.selectedCategory = category;
+    if (category === 'Toutes') {
+      this.filteredRecettes = [...this.recettes];
+    } else {
+      this.filteredRecettes = this.recettes.filter(recette => recette.category === category);
+    }
   }
 
   openModal(): void {

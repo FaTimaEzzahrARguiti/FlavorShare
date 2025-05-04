@@ -1,20 +1,75 @@
-<div class="container mt-5">
-    <h2>Recettes</h2>
+<style>
+    .category-pill {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #34495e;
+  color: #ecf0f1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-pill.active {
+  background-color: #f1c40f;
+  color: #34495e;
+}
+
+.category-pill:hover {
+  background-color: #2c3e50;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card {
+  background-color: #34495e;
+  border: none;
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 2px solid #f1c40f;
+}
+
+.card-title, .card-text {
+  color: #ecf0f1;
+}
+</style>
+
+<section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Recettes Tendances</h2>
+      <div class="d-flex flex-wrap mb-4 gap-3">
+        <div class="category-pill" [class.active]="selectedCategory === 'Toutes'" (click)="filterCategory('Toutes')">Toutes</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Végétarien'" (click)="filterCategory('Végétarien')">Végétarien</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Vegan'" (click)="filterCategory('Vegan')">Vegan</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Sans gluten'" (click)="filterCategory('Sans gluten')">Sans gluten</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Dessert'" (click)="filterCategory('Dessert')">Dessert</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Plat principal'" (click)="filterCategory('Plat principal')">Plat principal</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Entrée'" (click)="filterCategory('Entrée')">Entrée</div>
+        <div class="category-pill" [class.active]="selectedCategory === 'Rapide'" (click)="filterCategory('Rapide')">Rapide</div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="container mt-5">
     <button class="btn btn-success mb-3" (click)="openModal()">Ajouter une recette</button>
     <div class="row">
-      <div class="col-md-4" *ngFor="let recette of recettes">
+      <div class="col-md-4" *ngFor="let recette of filteredRecettes">
         <div class="card recipe-card">
           <img [src]="recette.image" class="card-img-top" alt="{{ recette.nom }}">
           <div class="card-body">
             <h5 class="card-title">{{ recette.nom }}</h5>
             <p class="card-text">{{ recette.category }}</p>
             <a *ngIf="recette.id" [routerLink]="['/details', recette.id]" class="btn btn-details">Détails</a>
+          </div>
+        </div>
       </div>
     </div>
-</div>
-
-<!-- Modal pour ajout -->
-<div class="modal fade" id="addRecetteModal" tabindex="-1" aria-labelledby="addRecetteModalLabel" aria-hidden="true">
+  </div>
+  
+  <!-- Modal pour ajout -->
+  <div class="modal fade" id="addRecetteModal" tabindex="-1" aria-labelledby="addRecetteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" style="background-color: #34495e; color: #ecf0f1;">
         <div class="modal-header">
@@ -41,7 +96,17 @@
             </div>
             <div class="mb-3">
               <label for="category" class="form-label">Catégorie</label>
-              <input type="text" class="form-control" id="category" formControlName="category" required>
+              <select class="form-control" id="category" formControlName="category" required>
+                <option value="">Sélectionner une catégorie</option>
+                <option value="Toutes">Toutes</option>
+                <option value="Végétarien">Végétarien</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Sans gluten">Sans gluten</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Plat principal">Plat principal</option>
+                <option value="Entrée">Entrée</option>
+                <option value="Rapide">Rapide</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-success" [disabled]="recetteForm.invalid">Enregistrer</button>
             <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Annuler</button>
@@ -49,4 +114,4 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
