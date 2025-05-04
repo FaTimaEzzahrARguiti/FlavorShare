@@ -5,11 +5,10 @@ import { RecetteDetailsComponent } from './components/recette-details/recette-de
 
 const routes: Routes = [
   { path: '', component: RecetteListComponent },
-  { path: 'details/:id', component: RecetteDetailsComponent }
-];
+  { path: 'details/:id', component: RecetteDetailsComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

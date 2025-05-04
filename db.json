@@ -1,21 +1,28 @@
-
 {
-    "recette": [
-      {
-        "id": 1,
-        "nom": "Spaghetti Bolognese",
-        "ingredient": "Pâtes, viande hachée, tomate, oignon, ail",
-        "etapes": "Faire cuire les pâtes, préparer la sauce, mélanger.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRryNuzOaja0QmPPXEiSf8Je_xnrhvL7ChsaS-JQYV_P5fwZpeFVJXB5t2wYwp9oVKt3lc&usqp=CAU",
-        "category": "Plat principal"
-      },
-      {
-        "id": 2,
-        "nom": "Gâteau au chocolat",
-        "ingredient": "Chocolat, farine, sucre, œufs, beurre",
-        "etapes": "Mélanger les ingrédients, cuire au four à 180°C.",
-        "image": "https://via.placeholder.com/300x200",
-        "category": "Dessert"
-      }
-    ]
-  }
+  "recettes": [
+    {
+      "id": "c028",
+      "nom": "fati",
+      "ingredient": "sdfghjklm",
+      "etapes": "qsdfghjklm",
+      "image": "azertyuiop",
+      "category": "qertyuiop"
+    },
+    {
+      "id": "6ebe",
+      "nom": "Tajine ",
+      "ingredient": "azertyuiop",
+      "etapes": "zertyuio",
+      "image": "https://www.google.com/imgres?q=tajine&imgurl=https%3A%2F%2Fimg.cuisineaz.com%2F1024x768%2F2013%2F12%2F20%2Fi79008-photo-de-tajine-de-poulet-aux-epices.webp&imgrefurl=https%3A%2F%2Fwww.cuisineaz.com%2Frecettes%2Ftajine-de-poulet-aux-epices-5468.aspx&docid=eWo86mxUi3ijrM&tbnid=bf0Wmu3RiAMftM&vet=12ahUKEwiD8pzO2oqNAxWucaQEHSgcHYYQM3oECBsQAA..i&w=1000&h=668&hcb=2&ved=2ahUKEwiD8pzO2oqNAxWucaQEHSgcHYYQM3oECBsQAA",
+      "category": "zertyui"
+    },
+    {
+      "id": "afcf",
+      "nom": "fati",
+      "ingredient": "azertyu",
+      "etapes": "azertyu",
+      "image": "https://fr.pinterest.com/pin/80853755804643179/",
+      "category": "azertyu"
+    }
+  ]
+}

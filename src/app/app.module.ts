@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RecetteListComponent } from './components/recette-list/recette-list.component';
 import { RecetteDetailsComponent } from './components/recette-details/recette-details.component';
@@ -19,12 +19,12 @@ import { RecetteDetailsComponent } from './components/recette-details/recette-de
     RecetteDetailsComponent,
   
   ],
- imports: [
+  imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
-    HttpClientModule
-    
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h2>Recettes</h2>
-    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#recetteModal" (click)="openAddModal()">Ajouter une recette</button>
+    <button class="btn btn-success mb-3" (click)="openModal()">Ajouter une recette</button>
     <div class="row">
       <div class="col-md-4" *ngFor="let recette of recettes">
         <div class="card recipe-card">
@@ -8,23 +8,17 @@
           <div class="card-body">
             <h5 class="card-title">{{ recette.nom }}</h5>
             <p class="card-text">{{ recette.category }}</p>
-            <div class="d-flex gap-2">
-              <a [routerLink]="['/details', recette.id]" class="btn btn-details">Détails</a>
-              <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recetteModal" (click)="openEditModal(recette)">Modifier</button>
-              <button class="btn btn-danger" (click)="deleteRecette(recette.id)">Supprimer</button>
-            </div>
-          </div>
-        </div>
+            <a *ngIf="recette.id" [routerLink]="['/details', recette.id]" class="btn btn-details">Détails</a>
       </div>
     </div>
-  </div>
-  
-  <!-- Modal pour ajout/modification -->
-  <div class="modal fade" id="recetteModal" tabindex="-1" aria-labelledby="recetteModalLabel" aria-hidden="true">
+</div>
+
+<!-- Modal pour ajout -->
+<div class="modal fade" id="addRecetteModal" tabindex="-1" aria-labelledby="addRecetteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" style="background-color: #34495e; color: #ecf0f1;">
         <div class="modal-header">
-          <h5 class="modal-title" id="recetteModalLabel">{{ isEdit ? 'Modifier la recette' : 'Ajouter une recette' }}</h5>
+          <h5 class="modal-title" id="addRecetteModalLabel">Ajouter une recette</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -47,7 +41,7 @@
             </div>
             <div class="mb-3">
               <label for="category" class="form-label">Catégorie</label>
-              <input type="text" class="Vladimir" id="category" formControlName="category" required>
+              <input type="text" class="form-control" id="category" formControlName="category" required>
             </div>
             <button type="submit" class="btn btn-success" [disabled]="recetteForm.invalid">Enregistrer</button>
             <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Annuler</button>
@@ -55,4 +49,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>

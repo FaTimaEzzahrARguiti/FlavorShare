@@ -1,0 +1,25 @@
+.recipe-card {
+    background-color: #34495e;
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #f1c40f;
+  }
+  .card-title, .card-text {
+    color: #ecf0f1;
+  }
+  .btn-details {
+    background-color: #f1c40f;
+    color: #2c3e50;
+  }
+  .btn-details:hover {
+    background-color: #e67e22;
+    color: #fff;
+  }

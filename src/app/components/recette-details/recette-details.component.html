@@ -1,1 +1,23 @@
-<p>recette-details works!</p>
+<div class="container mt-5">
+    <h2>Détails de la recette</h2>
+    <div *ngIf="isLoading" class="alert alert-info">
+      Chargement...
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="recette" class="card recipe-card">
+      <img [src]="recette.image" class="card-img-top" alt="{{ recette.nom }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ recette.nom }}</h5>
+        <p class="card-text"><strong>Catégorie :</strong> {{ recette.category }}</p>
+        <p class="card-text"><strong>Ingrédients :</strong> {{ recette.ingredient }}</p>
+        <p class="card-text"><strong>Étapes :</strong> {{ recette.etapes }}</p>
+        <div class="d-flex gap-2">
+          <a [routerLink]="['/edit', recette.id]" class="btn btn-warning">Modifier</a>
+          <button (click)="deleteRecette(recette.id)" class="btn btn-danger">Supprimer</button>
+          <a routerLink="/" class="btn btn-secondary">Retour</a>
+        </div>
+      </div>
+    </div>
+  </div>
